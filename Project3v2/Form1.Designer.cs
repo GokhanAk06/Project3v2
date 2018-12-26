@@ -59,6 +59,7 @@
             this.weightText.Name = "weightText";
             this.weightText.Size = new System.Drawing.Size(121, 20);
             this.weightText.TabIndex = 1;
+            this.weightText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.weightText_KeyPress);
             // 
             // heightText
             // 
@@ -66,6 +67,7 @@
             this.heightText.Name = "heightText";
             this.heightText.Size = new System.Drawing.Size(121, 20);
             this.heightText.TabIndex = 2;
+            this.heightText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.heightText_KeyPress);
             // 
             // chooseBttn
             // 

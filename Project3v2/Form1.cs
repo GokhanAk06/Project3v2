@@ -23,7 +23,7 @@ namespace Project3v2
 
         private void Project3v2_Load(object sender, EventArgs e)
         {
-
+            startBttn.Enabled = false;
         }
 
         private void chooseBttn_Click(object sender, EventArgs e)
@@ -53,6 +53,10 @@ namespace Project3v2
                 }
             }
             MessageBox.Show("", "File Content at path: " + filePath, MessageBoxButtons.OK);
+            if(filePath != "" && weightText.Text != "" && heightText.Text != "")
+            {
+                startBttn.Enabled = true;
+            }
         }
 
         private void startBttn_Click(object sender, EventArgs e)
@@ -205,6 +209,16 @@ namespace Project3v2
                         rgbFrame[bIndex + y * width + x] = (byte)temp;
                 }
             }
+        }
+
+        private void weightText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void heightText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
 
