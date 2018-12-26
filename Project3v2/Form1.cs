@@ -112,6 +112,14 @@ namespace Project3v2
 
             image = new Bitmap(picLoc);
 
+
+            //scale değeri manual alınacaktır.
+            double scale =0.5; //Math.Min(360 / image.Width, 288 / image.Height);
+
+
+
+            Size newSize = new Size((int)(image.Width * scale), (int)(image.Height * scale));
+            Bitmap bmp = new Bitmap(image, newSize);
             //float scale = Math.Min(weight / image.Width, height / image.Height);
             //var brush = new SolidBrush(Color.Black);
             //var graph = Graphics.FromImage(image);
@@ -124,7 +132,7 @@ namespace Project3v2
 
             ////////////////////////////
             pictureBox1.ClientSize = new Size(weight, height);
-            pictureBox1.Image = (Image)image;            
+            pictureBox1.Image = (Image)bmp;            
 
         }
 
