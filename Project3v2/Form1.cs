@@ -150,7 +150,7 @@ namespace Project3v2
             {
                 // Her bir çerçeveyi bir döngüde okuyun
                 br.Read(yuv, 0, frameSize);
-
+                //
                 //Dönüştür RGB
                 ConvertYUV2RGB(yuv, rgb, weight, height);
 
