@@ -15,9 +15,6 @@ namespace Project3v2
     {
         public static string directory = null;
         public static int weight, height;
-        // static double[,] YUV2RGB_CONVERT_MATRIX = new double[3, 3] { { 1, 0, 1.4022 }, { 1, -0.3456, -0.7145 }, { 1, 1.771, 0 } };
-
-
 
         public Project3v2()
         {
@@ -42,10 +39,10 @@ namespace Project3v2
 
                 if(openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
+                    //Belirtilen dosyanın yolunu alır
                     filePath = openFileDialog.FileName;
                     directory = filePath;
-                    //Read the contents of the file into a stream
+                    //Dosyanın içeriğini bir akışa okur
                     var fileStream = openFileDialog.OpenFile();
 
 
@@ -150,11 +147,10 @@ namespace Project3v2
             {
                 // Her bir çerçeveyi bir döngüde okuyun
                 br.Read(yuv, 0, frameSize);
-                //
                 //Dönüştür RGB
                 ConvertYUV2RGB(yuv, rgb, weight, height);
 
-                //// 写 BMP 文件。 @"C:\Users\Gökhan\Source\Repos\Project3\Project3
+                //// BMP dosyasını yazın. @"C:\Users\Gökhan\Source\Repos\Project3\Project3
                 WriteBMP(rgb, weight, height, string.Format(@"C:\Users\Gökhan\Source\Repos\Project3\Project3\yuv2bmp_{0}.bmp", index++));
 
 
