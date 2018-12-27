@@ -86,7 +86,7 @@ namespace Project3v2
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Seçim hatası.Comboboxtan doğru seçeneği seçiniz.");
+                //MessageBox.Show("Seçim hatası.Comboboxtan doğru seçeneği seçiniz.");
             }
 
             chooseFormat.SelectedIndex = -1;
@@ -112,9 +112,18 @@ namespace Project3v2
 
             image = new Bitmap(picLoc);
 
-
+            int a = Convert.ToInt32(textBox1.Text);
+            int b = Convert.ToInt32(textBox2.Text);
+            double scale;
             //scale değeri manual alınacaktır.
-            double scale =0.5; //Math.Min(360 / image.Width, 288 / image.Height);
+            if(((double)a / (double)weight) >= ((double)b / (double)height))
+            {
+                 scale = (double)((double)b / (double)height);
+            }
+            else
+            {
+                scale = (double)((double)a / (double)weight);
+            }
 
 
 
@@ -225,6 +234,16 @@ namespace Project3v2
         }
 
         private void heightText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
