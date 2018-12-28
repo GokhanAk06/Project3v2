@@ -108,7 +108,7 @@ namespace Project3v2
 
         public void pushPhoto(string picLoc)
         {
-            Bitmap image,resizeimage;
+            Bitmap image, resizeimage;
 
             image = new Bitmap(picLoc);
 
@@ -118,7 +118,7 @@ namespace Project3v2
             //scale değeri manual alınacaktır.
             if(((double)a / (double)weight) >= ((double)b / (double)height))
             {
-                 scale = (double)((double)b / (double)height);
+                scale = (double)((double)b / (double)height);
             }
             else
             {
@@ -141,7 +141,7 @@ namespace Project3v2
 
             ////////////////////////////
             pictureBox1.ClientSize = new Size(weight, height);
-            pictureBox1.Image = (Image)bmp;            
+            pictureBox1.Image = (Image)bmp;
 
         }
 
@@ -156,7 +156,7 @@ namespace Project3v2
             int frameSize = Convert.ToInt32(imgSize * kat);
 
             int index = 0;
-            
+
             Encoding utf16 = Encoding.Unicode;
 
             byte[] yuv = new byte[frameSize];
@@ -340,9 +340,9 @@ namespace Project3v2
                     {
                         for(int x = 0, i = 0; x < width; x++)
                         {
-                            data[y * bytePerLine + i++] = rgbFrame[bIndex + j * width + x];    // B
-                            data[y * bytePerLine + i++] = rgbFrame[gIndex + j * width + x];    // G
                             data[y * bytePerLine + i++] = rgbFrame[j * width + x];  // R
+                            data[y * bytePerLine + i++] = rgbFrame[gIndex + j * width + x];    // G
+                            data[y * bytePerLine + i++] = rgbFrame[bIndex + j * width + x];    // B
                         }
                     }
 
